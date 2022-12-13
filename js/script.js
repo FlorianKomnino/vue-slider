@@ -27,7 +27,9 @@ createApp ({
                     }
                 ],
             tabIndex : 0,
-            customInterval : "",
+            customInterval : null,
+
+            hover: false
         }
     },
 
@@ -48,12 +50,25 @@ createApp ({
             }
         },
 
-        autoPlayCarousel() {
-            console.log('ciao')
-            this.customInterval = setInterval(function() {
-                this.tabIndex = this.tabIndex + 1;
-            }, 1000);
+        setImage(index) {
+            this.tabIndex = index;
+        },
+
+        classChecker(index) {
+            return (index === this.tabIndex);
+        },
+
+        autoPlayClearer() {
+            clearInterval(this.customInterval);
+        },
+
+        autoPlayPlayer() {
+            this.customInterval = setInterval(this.nextButton, 1000);
         }
+    },
+
+    created() {
+        this.customInterval = setInterval(this.nextButton, 1000);
     }
 }).mount ('#app')
 

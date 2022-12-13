@@ -25,21 +25,20 @@
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
 
-                <div class="item">
+                <div class="item" @mouseover="autoPlayClearer()" @mouseleave="autoPlayPlayer()">
                     <img :src="slides[tabIndex].image" :alt="slides[tabIndex].title" />
                     <div class="text">
                         <h3>{{ slides[tabIndex].title }}</h3>
                         <p>{{ slides[tabIndex].text }}</p>
                     </div>
-                    <div class="autoPlay" @click="autoPlayCarousel">Autoplay</div>
                 </div>
 
                 <div class="thumbs">
                     <div class="prev" @click="prevButton()"></div>
                     <div class="next" @click="nextButton()"></div>
 
-                    <div class="thumb" v-for="image, index in slides" :class='index === tabIndex ? "active" : "" '>
-                        <img :src="image.image" :alt="image.title" @click="tabIndex = index"/>
+                    <div class="thumb" v-for="(image, index) in slides" :class='classChecker(index) ? "active" : "" '>
+                        <img :src="image.image" :alt="image.title" @mouseover="autoPlayClearer(), setImage(index)" @click="setImage(index)" @mouseleave="autoPlayPlayer()"/>
                     </div>
                 </div>
 
