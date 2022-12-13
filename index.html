@@ -38,7 +38,7 @@
                     <div class="next" @click="nextButton()"></div>
 
                     <div class="thumb" v-for="image, index in slides" :class='index === tabIndex ? "active" : "" '>
-                        <img :src="image.image" :alt="image.title"/>
+                        <img :src="image.image" :alt="image.title" @click="tabIndex = index"/>
                     </div>
                 </div>
 
