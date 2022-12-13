@@ -68,6 +68,19 @@
     z-index: 999;
 }
 
+.autoPlay {
+    margin: 10px 0;
+    padding: 0 1rem;
+    border-radius: 1rem;
+    background: #ccc;
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    transform: translate(-50%);
+    cursor: pointer;
+    z-index: 999;
+}
+
 .next {
     bottom: 0;
 }
