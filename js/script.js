@@ -30,8 +30,22 @@ createApp ({
         }
     },
 
-    methods() {
+    methods: {
+        prevButton() {
+            if(this.tabIndex <= 0){
+                this.tabIndex = this.slides.length - 1;
+            } else {
+                this.tabIndex--;
+            }
+        },
 
+        nextButton() {
+            if(this.tabIndex >= this.slides.length - 1){
+                this.tabIndex = 0;
+            } else {
+                this.tabIndex++;
+            }
+        }
     }
 }).mount ('#app')
 
